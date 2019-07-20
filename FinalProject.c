@@ -25,8 +25,6 @@ struct Person {
     char emailAddress[60]; 
 }; 
 
-  
-
 //Prototypes   
 void addContact(Person *person); 
 void searchContact(Person person); 
@@ -41,7 +39,6 @@ void viewAllContacts(Person person);
 *                 error, zero will be returned to the calling program or operating * 
 *                 system. 
 */ 
-  
 
 main() { 
     // Variables  
@@ -50,8 +47,6 @@ main() {
 
     // Struct Variable  
     Person contact; 
-
-  
 
     // Menu Loop  
     while (exit == 0) { 
@@ -90,10 +85,7 @@ main() {
     } 
     system("pause"); 
     return 0; 
-
 } 
-
-  
 
 /* 
 * Name:           addContact() 
@@ -143,10 +135,7 @@ void addContact(Person *person) {
     printf("\nPress any key to continue...."); 
     getch(); 
     main(); 
-
 } 
-
-  
 
 /* 
 * Name:            searchContact() 
@@ -181,8 +170,7 @@ void searchContact(Person person) {
         } 
     }
     printf("\n----------\n");
-    
-    
+   
     fclose(pb); 
     printf("\nPress any key to continue..."); 
 
@@ -209,8 +197,6 @@ void deleteContact(Person *person) {
     printf("\nEnter the first or last name of the contact: "); 
     scanf("%s", name);
 
-  
-
     while (fscanf(pb, "%s %s %s %s %s %s %s %s", person->firstName, person->lastName, person->streetAddress, person->cityName, person->stateName, person->zipCode, person->phoneNumber, person->emailAddress) != EOF) { 
         if ((strcmp(name, person->firstName) == 0) || (strcmp(name, person->lastName) == 0)) { 
             continue; 
@@ -223,8 +209,6 @@ void deleteContact(Person *person) {
 
     pb = fopen("contacts.txt", "w"); 
     pb1 = fopen("temp.txt", "r"); 
-
-  
 
     while (fscanf(pb1, "%s %s %s %s %s %s %s %s", person->firstName, person->lastName, person->streetAddress, person->cityName, person->stateName, person->zipCode, person->phoneNumber, person->emailAddress) != EOF) { 
         fprintf(pb, "%s %s %s %s %s %s %s %s \n", person->firstName, person->lastName, person->streetAddress, person->cityName, person->stateName, person->zipCode, person->phoneNumber, person->emailAddress); 
@@ -245,8 +229,6 @@ void viewAllContacts(Person person) {
     pb = fopen("contacts.txt", "r"); 
     system("cls"); 
 
-  
-
     printf("-----All Contacts-----"); 
     while (fscanf(pb, "%s %s %s %s %s %s %s %s", person.firstName, person.lastName, person.streetAddress, person.cityName, person.stateName, person.zipCode, person.phoneNumber, person.emailAddress) != EOF) { 
         printf("\n\n Name    :  %s %s", person.firstName, person.lastName); 
@@ -257,9 +239,6 @@ void viewAllContacts(Person person) {
         printf("\n Phone # :  %s", person.phoneNumber); 
         printf("\n Email @ :  %s", person.emailAddress); 
     } 
-
-  
-
     fclose(pb); 
     printf("\nPress any key to continue...."); 
     getch(); 
