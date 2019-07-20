@@ -1,11 +1,11 @@
 /*  
-* File Name: 
-* Name: 
+* File Name:      phoneBook.c
+* Name:           Scott & Isaiah's Phone Book
 * Course:         COP 2220C at Valencia College 
 * Facilitator:    David Stendel 
-* Description:
+* Description:    An address book that can add, delete, find, and view contacts.
 * Team Members:   Scott Willard, Isaiah Payne 
-* Date:
+* Date:           7/20/2019
 */
 
 // Preprocessor Directives   
