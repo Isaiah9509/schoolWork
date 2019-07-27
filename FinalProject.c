@@ -44,7 +44,6 @@ void viewAllContacts(Person person);
 main() {
 	// Variables  
 	int exit = 0;
-	// Temporary File
 
 	// Struct Variable  
 	Person contact;
