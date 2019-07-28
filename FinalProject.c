@@ -325,7 +325,7 @@ void viewAllContacts(Person person) {
 }
 
 /*
-* Name:           whiteSpaceCHeck()
+* Name:           whiteSpaceCheck()
 * Parameters:      A pointer to a string, and a pointer to an integer.
 * Processes:       Reads a string for spaces.
 * Return Value:    None.
