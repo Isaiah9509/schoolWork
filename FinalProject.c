@@ -30,6 +30,7 @@ void addContact(Person *person);
 void searchContact(Person person);
 void deleteContact(Person *person);
 void viewAllContacts(Person person);
+void whiteSpaceCheck(char string[], int spaces);
 
 /*
 * Name:           main()
@@ -98,37 +99,102 @@ main() {
 
 void addContact(Person *person) {
 	// Local Variables  
+	int *spaceCheck;
+	int exitLoop = 0;
 	FILE *pb;
 	pb = fopen("contacts.txt", "a+");
 
 	system("cls");
 
 	printf("-----Add Contact-----");
-
+	//Loop for error checking spaces
+	while (exitLoop == 0) {
 	printf("\nPlease enter the First Name of the contact: ");
 	scanf("%s", &person->firstName);
+	
+	whiteSpaceCheck(person->firstName, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
+	while (exitLoop == 0) {
 	printf("\nPlease enter the Last Name of the contact: ");
 	scanf("%s", &person->lastName);
+	
+	whiteSpaceCheck(person->lastName, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
+	while (exitLoop == 0) {
 	printf("\nPlease enter the Street Name of the contact: ");
 	scanf(" %[^\n]", &person->streetAddress);
+	
+	whiteSpaceCheck(person->streetAddress, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
+	while (exitLoop == 0) {
 	printf("\nPlease enter the City Name of the contact: ");
 	scanf("%s", &person->cityName);
 
+	whiteSpaceCheck(person->cityName, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
+
+	while (exitLoop == 0) {
 	printf("Please enter the State Name of the contact: ");
 	scanf("%s", &person->stateName);
+	
+	whiteSpaceCheck(person->stateName, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
+	while (exitLoop == 0) {
 	printf("Please enter the  ZIP Code of the contact: ");
 	scanf("%s", &person->zipCode);
+	
+	whiteSpaceCheck(person->zipCode, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
-
+	while (exitLoop == 0) {
 	printf("Please enter the phone number of the contact: ");
 	scanf("%s", &person->phoneNumber);
+	
+	whiteSpaceCheck(person->phoneNumber, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
+	while (exitLoop == 0) {
 	printf("Please enter the email address of the contact: ");
 	scanf("%s", &person->emailAddress);
+	
+	whiteSpaceCheck(person->emailAddress, &spaceCheck);
+	if (spaceCheck > 0) printf("\nError, Please enter the information with no spaces.\n");
+	if (spaceCheck < 0) exitLoop = 1;
+	system("pause");
+	system("cls");
+}
 
 	fprintf(pb, "%s %s %s %s %s %s %s %s \n", person->firstName, person->lastName, person->streetAddress, person->cityName, person->stateName, person->zipCode, person->phoneNumber, person->emailAddress);
 	fclose(pb);
@@ -189,7 +255,7 @@ void deleteContact(Person *person) {
 
 	//Local Variables  
 	FILE *pb, *pb1;
-
+	
 	char name[20];
 	char name1[20];
 
@@ -256,4 +322,20 @@ void viewAllContacts(Person person) {
 	printf("\nPress any key to continue....");
 	getch();
 	main();
+}
+
+/*
+* Name:           whiteSpaceCHeck()
+* Parameters:      A pointer to a string, and a pointer to an integer.
+* Processes:       Reads a string for spaces.
+* Return Value:    None.
+*/
+void whiteSpaceCheck(char string[], int spaces) {
+	int i;
+	spaces = 0;
+	char c;
+	for (i = 0; i < sizeof(string); i++) {
+		c = string[i];
+		if (isspace(c)) spaces += 1;
+	}
 }
